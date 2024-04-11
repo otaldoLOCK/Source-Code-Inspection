@@ -22,11 +22,12 @@ class Troco {
             count++;
         }
         papeisMoeda[4] = new PapelMoeda(50, count);
-        count = 0;
-        while (valor % 20 != 0) {
-            count++;
-        }
-        papeisMoeda[3] = new PapelMoeda(20, count);
+        int count = 0;
+while (valor % 20 != 0) {
+    valor -= 20; // Subtrai 20 do valor enquanto não for divisível por 20
+    count++; // Conta uma nota de 20
+}
+papeisMoeda[3] = new PapelMoeda(20, count);
         count = 0;
         while (valor % 10 != 0) {
             count++;
