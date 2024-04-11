@@ -68,15 +68,16 @@ class Troco {
 
         @Override
         public PapelMoeda next() {
-            PapelMoeda ret = null;
-            for (int i = 6; i >= 0 && ret != null; i++) {
-                if (troco.papeisMoeda[i] != null) {
-                    ret = troco.papeisMoeda[i];
-                    troco.papeisMoeda[i] = null;
-                }
-            }
-            return ret;
+    PapelMoeda ret = null;
+    for (int i = 5; i >= 0; i--) { // Correção: alterado o i++ para i--
+        if (troco.papeisMoeda[i] != null) {
+            ret = troco.papeisMoeda[i];
+            troco.papeisMoeda[i] = null;
+            break; // Adicionado para sair do loop assim que uma nota válida for encontrada
         }
+    }
+    return ret;
+}
 
         @Override
         public void remove() {
