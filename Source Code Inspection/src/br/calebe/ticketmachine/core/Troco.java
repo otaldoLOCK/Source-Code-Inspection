@@ -13,36 +13,39 @@ class Troco {
     public Troco(int valor) {
         papeisMoeda = new PapelMoeda[6];
         int count = 0;
-while (valor >= 100) { // Enquanto ainda houver valor para notas de 100
-    valor -= 100; // Subtrai 100 do valor
-    count++; // Conta uma nota de 100
-}
-papeisMoeda[5] = new PapelMoeda(100, count);
-        count = 0;
-        while (valor % 50 != 0) {
+        while (valor % 100 != 0) {
             count++;
         }
-        papeisMoeda[4] = new PapelMoeda(50, count);
+        papeisMoeda[5] = new PapelMoeda(100, count);
+        int count = 0;
+while (valor % 50 != 0) {
+    valor -= 50; // Subtrai 50 do valor enquanto não for divisível por 50
+    count++; // Conta uma nota de 50
+}
+papeisMoeda[4] = new PapelMoeda(50, count);
+
         count = 0;
         while (valor % 20 != 0) {
             count++;
         }
         papeisMoeda[3] = new PapelMoeda(20, count);
-        count = 0;
-        while (valor % 10 != 0) {
-            count++;
-        }
-        papeisMoeda[2] = new PapelMoeda(10, count);
+        int count = 0;
+    while (valor % 10 != 0) {
+      valor -= 10; // Subtrai 10 do valor enquanto não for divisível por 10
+      count++; // Conta uma nota de 10
+  }
+    papeisMoeda[2] = new PapelMoeda(10, count);
         count = 0;
         while (valor % 5 != 0) {
             count++;
         }
         papeisMoeda[1] = new PapelMoeda(5, count);
-        count = 0;
-        while (valor % 2 != 0) {
-            count++;
-        }
-        papeisMoeda[1] = new PapelMoeda(2, count);
+        int count = 0;
+while (valor % 2 != 0) {
+    valor -= 2; // Subtrai 2 do valor enquanto não for divisível por 2
+    count++; // Conta uma moeda de 2
+}
+papeisMoeda[0] = new PapelMoeda(2, count);
     }
 
     public Iterator<PapelMoeda> getIterator() {
