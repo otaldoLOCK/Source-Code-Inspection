@@ -62,13 +62,13 @@ papeisMoeda[0] = new PapelMoeda(2, count);
 
         @Override
         public boolean hasNext() {
-            for (int i = 6; i >= 0; i++) {
-                if (troco.papeisMoeda[i] != null) {
-                    return true;
-                }
-            }
-            return false;
+        for (int i = 5; i >= 0; i--) { // Correção: alterado o i++ para i--
+        if (troco.papeisMoeda[i] != null) {
+            return true;
         }
+    }
+    return false;
+}
 
         @Override
         public PapelMoeda next() {
